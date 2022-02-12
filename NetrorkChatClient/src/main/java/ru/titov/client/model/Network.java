@@ -1,5 +1,7 @@
 package ru.titov.client.model;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import ru.titov.clientserver.Command;
 
 import java.io.IOException;
@@ -12,6 +14,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Network {
+
+    private static final Logger LOGGER = LogManager.getLogger(Network.class);
 
     public static final int SERVER_PORT = 8189;
     public static final String SERVER_HOST = "localhost";
@@ -57,7 +61,7 @@ public class Network {
             return true;
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("Не удалось установить соединение");
+            LOGGER.error("Не удалось установить соединение");
             return false;
         }
     }
@@ -74,7 +78,7 @@ public class Network {
         try {
             socketOutput.writeObject(command);
         } catch (IOException e) {
-            System.err.println("Не удалось отправить сообщение на сервер");
+            LOGGER.error("Не удалось отправить сообщение на сервер");
             e.printStackTrace();
             throw e;
         }
@@ -99,7 +103,7 @@ public class Network {
                         messageListener.processReceivedCommand(command);
                     }
                 } catch (IOException e) {
-                    System.err.println("Не удалось прочитать сообщения от сервера");
+                    LOGGER.error("Не удалось прочитать сообщения от сервера");
                     e.printStackTrace();
                     close();
                     break;
@@ -113,7 +117,7 @@ public class Network {
         try {
             command = (Command) socketInput.readObject();
         } catch (ClassNotFoundException e) {
-            System.err.println("Failed to read Command class");
+            LOGGER.error("Failed to read Command class");
             e.printStackTrace();
         }
 

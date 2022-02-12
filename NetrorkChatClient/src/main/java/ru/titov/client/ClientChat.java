@@ -42,6 +42,13 @@ public class ClientChat extends Application {
         getChatStage().show();
         getAuthStage().show();
         getAuthController().initializeMessageHandler();
+
+        this.primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent windowEvent) {
+                Network.getInstance().close();
+            }
+        });
     }
 
     private void initViews() throws IOException {
@@ -66,27 +73,6 @@ public class ClientChat extends Application {
         authStage.initOwner(primaryStage);
         authStage.initModality(Modality.WINDOW_MODAL);
         authStage.setScene(new Scene(authDialogPanel));
-    }
-
-    private void connectToServer(ClientController clientController) {
-        boolean result = Network.getInstance().connect();
-
-        if (!result) {
-            String errorMessage = CONNECTION_ERROR_MESSAGE;
-            LOGGER.error(errorMessage);
-            showErrorDialog(errorMessage);
-            return;
-        }
-
-
-        clientController.setApplication(this);
-
-        this.primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent windowEvent) {
-                Network.getInstance().close();
-            }
-        });
     }
 
     public void switchToMainChatWindow(String username) {

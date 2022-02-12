@@ -115,6 +115,7 @@ public class Network {
     private Command readCommand() throws IOException {
         Command command = null;
         try {
+            socketInput.available();
             command = (Command) socketInput.readObject();
         } catch (ClassNotFoundException e) {
             LOGGER.error("Failed to read Command class");

@@ -1,8 +1,13 @@
 package ru.titov.server.chat.auth;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.sql.*;
 
 public class PersistentDbAuthService implements IAuthService {
+
+    private static final Logger LOGGER = LogManager.getLogger(PersistentDbAuthService.class);
 
     private static final String DB_URL = "jdbc:sqlite:chatUsers.db";
     private Connection connection;
@@ -13,14 +18,14 @@ public class PersistentDbAuthService implements IAuthService {
     @Override
     public void start() {
         try {
-            System.out.println("Creating DB connection...");
+            LOGGER.info("Creating DB connection...");
             connection = DriverManager.getConnection(DB_URL);
-            System.out.println("DB connection is created successfully");
+            LOGGER.info("DB connection is created successfully");
             getUsernameStatement = createGetUsernameStatement();
             updateUsernameStatement = createUpdateUsernameStatement();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-            System.err.println("Failed to connect to DB by URL: " + DB_URL);
+            LOGGER.error("Failed to connect to DB by URL: " + DB_URL);
             throw new RuntimeException("Failed to start auth service");
         }
     }
@@ -39,7 +44,7 @@ public class PersistentDbAuthService implements IAuthService {
             resultSet.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-            System.err.printf("Failed to fetch username from DB. Login: %s; password: %s%n", login, password);
+            LOGGER.error("Failed to fetch username from DB. Login: {}; password: {}%n", login, password);
         }
 
         return username;
@@ -51,10 +56,10 @@ public class PersistentDbAuthService implements IAuthService {
             updateUsernameStatement.setString(1, newUsername);
             updateUsernameStatement.setString(2, currentUsername);
             int result = updateUsernameStatement.executeUpdate();
-            System.out.println("Update username. Updated rows: " + result);
+            LOGGER.info("Update username. Updated rows: {}", result);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-            System.err.printf("Failed to update username. currentUsername: %s; newUsername: %s%n",
+            LOGGER.error("Failed to update username. currentUsername: {}; newUsername: {}%n",
                     currentUsername, newUsername);
         }
     }
@@ -63,12 +68,12 @@ public class PersistentDbAuthService implements IAuthService {
     public void stop() {
         if (connection != null) {
             try {
-                System.out.println("Closing DB connection");
+                LOGGER.info("Closing DB connection");
                 connection.close();
-                System.out.println("DB connection is closed");
+                LOGGER.info("DB connection is closed");
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
-                System.err.println("Failed to close connection to DB by URL: " + DB_URL);
+                LOGGER.error("Failed to close connection to DB by URL: " + DB_URL);
                 throw new RuntimeException("Failed to stop auth service");
             }
         }

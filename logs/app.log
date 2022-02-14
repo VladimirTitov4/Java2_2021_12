@@ -1,0 +1,58 @@
+2022-02-13 00:15:42.319 [main] INFO  ru.titov.server.chat.MyServer - Server has been started
+2022-02-13 00:15:42.323 [main] INFO  ru.titov.server.chat.auth.PersistentDbAuthService - Creating DB connection...
+2022-02-13 00:15:42.782 [main] INFO  ru.titov.server.chat.auth.PersistentDbAuthService - DB connection is created successfully
+2022-02-13 00:15:42.785 [main] INFO  ru.titov.server.chat.MyServer - Waiting for new client connection
+2022-02-13 00:20:08.181 [main] INFO  ru.titov.server.chat.MyServer - Server has been started
+2022-02-13 00:20:08.184 [main] INFO  ru.titov.server.chat.auth.PersistentDbAuthService - Creating DB connection...
+2022-02-13 00:20:08.996 [main] INFO  ru.titov.server.chat.auth.PersistentDbAuthService - DB connection is created successfully
+2022-02-13 00:20:08.999 [main] INFO  ru.titov.server.chat.MyServer - Waiting for new client connection
+2022-02-13 00:26:05.470 [main] INFO  ru.titov.server.chat.MyServer - Client has been connected
+2022-02-13 00:26:05.479 [main] INFO  ru.titov.server.chat.MyServer - Waiting for new client connection
+2022-02-13 00:26:18.497 [main] INFO  ru.titov.server.chat.MyServer - Client has been connected
+2022-02-13 00:26:18.502 [main] INFO  ru.titov.server.chat.MyServer - Waiting for new client connection
+2022-02-13 00:26:57.165 [main] INFO  ru.titov.server.chat.MyServer - Client has been connected
+2022-02-13 00:26:57.170 [main] INFO  ru.titov.server.chat.MyServer - Waiting for new client connection
+2022-02-13 00:34:36.535 [main] INFO  ru.titov.server.chat.MyServer - Server has been started
+2022-02-13 00:34:36.538 [main] INFO  ru.titov.server.chat.auth.PersistentDbAuthService - Creating DB connection...
+2022-02-13 00:34:37.010 [main] INFO  ru.titov.server.chat.auth.PersistentDbAuthService - DB connection is created successfully
+2022-02-13 00:34:37.013 [main] INFO  ru.titov.server.chat.MyServer - Waiting for new client connection
+2022-02-13 00:34:54.738 [main] INFO  ru.titov.server.chat.MyServer - Client has been connected
+2022-02-13 00:34:54.747 [main] INFO  ru.titov.server.chat.MyServer - Waiting for new client connection
+2022-02-13 00:34:57.109 [pool-2-thread-1] ERROR ru.titov.server.chat.ClientHandler - Failed to process message from client
+2022-02-13 00:35:15.624 [main] INFO  ru.titov.server.chat.MyServer - Client has been connected
+2022-02-13 00:35:15.625 [main] INFO  ru.titov.server.chat.MyServer - Waiting for new client connection
+2022-02-13 00:35:17.370 [pool-2-thread-1] ERROR ru.titov.server.chat.ClientHandler - Failed to process message from client
+2022-02-13 00:36:14.727 [main] INFO  ru.titov.server.chat.MyServer - Server has been started
+2022-02-13 00:36:14.730 [main] INFO  ru.titov.server.chat.auth.PersistentDbAuthService - Creating DB connection...
+2022-02-13 00:36:15.184 [main] INFO  ru.titov.server.chat.auth.PersistentDbAuthService - DB connection is created successfully
+2022-02-13 00:36:15.187 [main] INFO  ru.titov.server.chat.MyServer - Waiting for new client connection
+2022-02-13 00:36:28.752 [main] INFO  ru.titov.server.chat.MyServer - Client has been connected
+2022-02-13 00:36:28.760 [main] INFO  ru.titov.server.chat.MyServer - Waiting for new client connection
+2022-02-13 00:36:30.912 [pool-2-thread-1] ERROR ru.titov.server.chat.ClientHandler - Failed to process message from client
+2022-02-13 00:36:49.790 [main] INFO  ru.titov.server.chat.MyServer - Server has been started
+2022-02-13 00:36:49.794 [main] INFO  ru.titov.server.chat.auth.PersistentDbAuthService - Creating DB connection...
+2022-02-13 00:36:50.258 [main] INFO  ru.titov.server.chat.auth.PersistentDbAuthService - DB connection is created successfully
+2022-02-13 00:36:50.261 [main] INFO  ru.titov.server.chat.MyServer - Waiting for new client connection
+2022-02-13 00:37:03.202 [main] INFO  ru.titov.server.chat.MyServer - Server has been started
+2022-02-13 00:37:03.206 [main] INFO  ru.titov.server.chat.auth.PersistentDbAuthService - Creating DB connection...
+2022-02-13 00:37:03.620 [main] INFO  ru.titov.server.chat.auth.PersistentDbAuthService - DB connection is created successfully
+2022-02-13 00:37:03.623 [main] INFO  ru.titov.server.chat.MyServer - Waiting for new client connection
+2022-02-13 00:37:16.035 [main] INFO  ru.titov.server.chat.MyServer - Client has been connected
+2022-02-13 00:37:16.069 [main] INFO  ru.titov.server.chat.MyServer - Waiting for new client connection
+2022-02-13 00:38:20.586 [pool-2-thread-1] ERROR ru.titov.server.chat.ClientHandler - Failed to process message from client
+2022-02-13 00:38:44.056 [main] INFO  ru.titov.server.chat.MyServer - Client has been connected
+2022-02-13 00:38:44.058 [main] INFO  ru.titov.server.chat.MyServer - Waiting for new client connection
+2022-02-13 00:39:07.159 [pool-2-thread-1] ERROR ru.titov.server.chat.ClientHandler - Failed to process message from client
+2022-02-13 00:39:13.330 [main] INFO  ru.titov.server.chat.MyServer - Client has been connected
+2022-02-13 00:39:13.331 [main] INFO  ru.titov.server.chat.MyServer - Waiting for new client connection
+2022-02-13 00:39:19.956 [pool-2-thread-1] ERROR ru.titov.server.chat.ClientHandler - Failed to process message from client
+2022-02-13 00:39:54.928 [main] INFO  ru.titov.server.chat.MyServer - Client has been connected
+2022-02-13 00:39:54.929 [main] INFO  ru.titov.server.chat.MyServer - Waiting for new client connection
+2022-02-13 00:40:01.882 [pool-2-thread-1] ERROR ru.titov.server.chat.ClientHandler - Failed to process message from client
+2022-02-13 00:41:02.326 [main] INFO  ru.titov.server.chat.MyServer - Server has been started
+2022-02-13 00:41:02.328 [main] INFO  ru.titov.server.chat.auth.PersistentDbAuthService - Creating DB connection...
+2022-02-13 00:41:02.783 [main] INFO  ru.titov.server.chat.auth.PersistentDbAuthService - DB connection is created successfully
+2022-02-13 00:41:02.786 [main] INFO  ru.titov.server.chat.MyServer - Waiting for new client connection
+2022-02-13 00:41:24.996 [main] INFO  ru.titov.server.chat.MyServer - Client has been connected
+2022-02-13 00:41:25.004 [main] INFO  ru.titov.server.chat.MyServer - Waiting for new client connection
+2022-02-13 00:41:27.215 [pool-2-thread-1] ERROR ru.titov.server.chat.ClientHandler - Failed to process message from client

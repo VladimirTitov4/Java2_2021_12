@@ -9,6 +9,8 @@ import javafx.scene.control.Alert;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import ru.titov.client.controllers.AuthController;
 import ru.titov.client.controllers.ClientController;
 import ru.titov.client.model.Network;
@@ -19,6 +21,7 @@ public class ClientChat extends Application {
 
     public static ClientChat INSTANCE;
 
+    private static final Logger LOGGER = LogManager.getLogger(ClientChat.class);
     public static final String CONNECTION_ERROR_MESSAGE = "Невозможно установить сетевое соединение";
 
     private Stage primaryStage;
@@ -39,6 +42,13 @@ public class ClientChat extends Application {
         getChatStage().show();
         getAuthStage().show();
         getAuthController().initializeMessageHandler();
+
+        this.primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent windowEvent) {
+                Network.getInstance().close();
+            }
+        });
     }
 
     private void initViews() throws IOException {
@@ -63,27 +73,6 @@ public class ClientChat extends Application {
         authStage.initOwner(primaryStage);
         authStage.initModality(Modality.WINDOW_MODAL);
         authStage.setScene(new Scene(authDialogPanel));
-    }
-
-    private void connectToServer(ClientController clientController) {
-        boolean result = Network.getInstance().connect();
-
-        if (!result) {
-            String errorMessage = CONNECTION_ERROR_MESSAGE;
-            System.err.println(errorMessage);
-            showErrorDialog(errorMessage);
-            return;
-        }
-
-
-        clientController.setApplication(this);
-
-        this.primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent windowEvent) {
-                Network.getInstance().close();
-            }
-        });
     }
 
     public void switchToMainChatWindow(String username) {
